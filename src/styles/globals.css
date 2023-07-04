@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+@layer base {
+  body {
+    @apply font-inter box-border;
+  }
+
+  #root {
+    @apply flex flex-col items-center;
+  }
+
+  button {
+    @apply w-fit cursor-pointer rounded border-1.5 duration-200;
+  }
+}
+
+@layer components {
+  .btn-big {
+    @apply px-7  h-12 text-button-medium sm:text-button-big;
+  }
+  .btn-big-1 {
+    @apply px-7  h-12 text-button-medium sm:text-button-big-1;
+  }
+
+  .btn-medium {
+    @apply px-5 h-10 text-button-medium;
+  }
+
+  .btn-filter {
+    @apply px-5 text-button-medium h-9;
+  }
+
+  .btn-grey-1 {
+    @apply bg-grey-0 border-grey-0 text-white-fixed  hover:bg-grey-1 hover:border-grey-1;
+  }
+
+  .btn-negative {
+    @apply bg-grey-6 border-grey-6 text-grey-2  hover:bg-grey-5 hover:border-grey-5;
+  }
+
+  .btn-disable {
+    @apply bg-grey-5 border-grey-5 text-white-fixed cursor-default;
+  }
+
+  .btn-brand-1 {
+    @apply bg-brand-1 border-brand-1 text-white-fixed hover:bg-brand-2 hover:border-brand-2;
+  }
+
+  .btn-brand-opacity {
+    @apply bg-brand-4 border-brand-4 text-brand-1;
+  }
+
+  .btn-light {
+    @apply bg-grey-10 border-grey-10 text-grey-1;
+  }
+
+  .btn-outline-light {
+    @apply border-grey-10 text-grey-10 hover:bg-grey-10 hover:text-grey-1;
+  }
+
+  .btn-outline-1 {
+    @apply border-grey-0 text-grey-0 hover:border-grey-1 hover:bg-grey-1 hover:text-grey-10;
+  }
+
+  .btn-outline-2 {
+    @apply border-grey-4 text-grey-0 hover:border-grey-1 hover:bg-grey-1 hover:text-grey-10;
+  }
+
+  .btn-outline-brand-1 {
+    @apply border-brand-1 text-brand-1 hover:bg-brand-4;
+  }
+
+  .btn-link {
+    @apply border-transparent text-grey-0 hover:bg-grey-8;
+  }
+
+  .btn-alert {
+    @apply bg-alert-3 border-alert-3 text-alert-1 hover:bg-alert-2 hover:border-alert-2;
+  }
+
+  .btn-success {
+    @apply bg-success-3 border-success-3 text-success-1 hover:bg-success-2 hover:border-success-2;
+  }
+
+  .btn-brand-disable {
+    @apply bg-brand-3 border-brand-3 text-brand-4 cursor-not-allowed pointer-events-none;
+  }
+
+  .btn-close-modal {
+    @apply h-3 w-3 rounded-none bg-transparent border-transparent text-grey-4;
+  }
+}
+
+@layer utilities {
+  .ellipsis-limiter {
+    @apply h-11 max-h-12 leading-normal overflow-hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .banner-gradient {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.29) 0%, #000000 100%);
+  }
+
+  .banner-background {
+    background-image: url("../assets/images/banner.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  .text-shadow {
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.9);
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .invert-direction {
+    direction: ltr;
+  }
+
+  .filter-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: #8e8990 #ffffff;
+    direction: rtl;
+  }
+
+  .filter-scroll::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .filter-scroll::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  .filter-scroll::-webkit-scrollbar-thumb {
+    background-color: #8e8990;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
+  .flex-row-center {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flex-column-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .width-modal {
+    width: min(90%, 520px);
+  }
+
+  .animation-delay-1 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-2 {
+    animation-delay: 200ms;
+  }
+
+  .modal-filter {
+    width: 100%;
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    overflow: auto;
+  }
+
+  .width-input {
+    width: min(100%, 466px);
+  }
+
+  .width-advert-info {
+    width: min(100%);
+  }
+
+  .container-product {
+    width: 100%;
+    max-width: 64rem;
+    margin: auto;
+  }
+
+  .img-transition {
+    transition: transform 0.2s;
+  }
+  .img-transition:hover {
+    transform: scale(1.4);
+  }
+  .img-transition-1 {
+    transition: transform 0.2s;
+  }
+  .img-transition-1:hover {
+    transform: scale(5);
+  }
+}
