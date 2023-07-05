@@ -312,7 +312,7 @@ export const FilterHome = ({ textButton }: FilterProps) => {
             btnSize="btn-big"
             btnColor="btn-brand-1"
             handleClick={() => handleClick()}>
-            {textButton}
+            Limpar filtros
           </Button>
         </div>
       )}

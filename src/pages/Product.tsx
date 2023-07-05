@@ -18,7 +18,10 @@ import { EditProfile } from "../components/Modals/EditProfile";
 export const Product = () => {
   const [carInfo, setCarInfo] = useState({} as CardObj);
   const [userInfo, setUserInfo] = useState({} as UserObj);
-  const [carImgsInfo, setCarImgsInfo] = useState([] as CarImgObj[]);
+  const [carImgsInfo, setCarImgsInfo] = useState({} as CarImgObj);
+  const [imgModal, setImgModal] = useState(false);
+  const [imgLink, setImgLink] = useState("");
+
   const {
     getComments,
     currentComments,
@@ -26,6 +29,7 @@ export const Product = () => {
     modalIsOpen,
     setUserCurrentComment,
   } = CommentsAuth();
+
   const {
     isDeleteProfileConfirmModalOpen,
     isEditProfileModalOpen,
@@ -56,11 +60,17 @@ export const Product = () => {
   const parseUserInfo = userData ? JSON.parse(userData) : null;
 
   const carImgsData = localStorage.getItem("@carImgs");
-  const parsecarImgsInfo: CarImgObj[] = carImgsData
+  const parsecarImgsInfo: CarImgObj | null = carImgsData
     ? JSON.parse(carImgsData)
     : null;
 
-  const values = Object.values(parsecarImgsInfo);
+  const values: Array<string> = Object.values(parsecarImgsInfo!);
+
+  const handleImg = (link: string) => {
+    setImgLink(link);
+    setImgModal(!imgModal);
+  };
+
   return (
     <>
       {isDeleteProfileConfirmModalOpen && (
@@ -131,7 +141,7 @@ export const Product = () => {
         <div className="flex flex-col justify-center container sm:px-32">
           <div className=" flex mt-[7rem] justify-between max-sm:flex-col max-sm:w-[100%] z-0">
             <section className="flex flex-col w-[59%] max-sm:w-[100%]">
-              <div className="flex justify-center items-center rounded bg-grey-10 py-7 px-7 xm:p-11  mb-4 max-sm:w-[100%] min-h-[300px]">
+              <div className="flex justify-center items-center rounded bg-grey-10 py-7 px-7 xm:p-11  mb-4 max-sm:w-[100%] min-h-[300px] overflow-hidden">
                 <img
                   src={carInfo.cover_image}
                   alt="Imagem carro"
@@ -156,12 +166,25 @@ export const Product = () => {
                         return (
                           <li
                             key={index}
-                            className="w-[85px]  h-[85px] sm:w-[103px] sm:h-[103px] bg-grey-7 rounded flex justify-center items-center">
+                            className="w-[85px]  h-[85px] sm:w-[103px] sm:h-[103px] bg-grey-7 rounded flex justify-center items-center cursor-pointer"
+                            onClick={() => handleImg(elem)}>
                             <img
-                              src={String(elem)}
+                              src={elem}
                               alt="Foto carro"
-                              className="object-contain img-transition-1"
+                              className="object-contain"
                             />
+                            {imgModal && (
+                              <Modal
+                                toggleModal={() => setImgModal(!imgModal)}
+                                title="Foto"
+                                attributes="text-center ">
+                                <img
+                                  src={imgLink}
+                                  alt="Foto carro"
+                                  className="object-contain"
+                                />
+                              </Modal>
+                            )}
                           </li>
                         );
                       }
@@ -210,11 +233,7 @@ export const Product = () => {
             </ul>
           </div>
           <NewComment
-            name={
-              userInfo
-                ? userInfo.name
-                : "Ops! Para fazer comentários você precisa estar logado! :("
-            }
+            name={userInfo ? userInfo.name : ""}
             color={userInfo ? userInfo.color : "#4a9d9d"}
           />
         </div>

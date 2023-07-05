@@ -46,8 +46,7 @@ export const Home = () => {
       {isDeleteProfileConfirmModalOpen && (
         <Modal
           title="Excluir perfil"
-          toggleModal={toggleDeleteConfirmProfileModal}
-        >
+          toggleModal={toggleDeleteConfirmProfileModal}>
           <form className="flex flex-col gap-5">
             <h2 className="heading-7-500 text-grey-1">
               Tem certeza que deseja remover este perfil?
@@ -62,8 +61,7 @@ export const Home = () => {
                 btnSize="btn-big"
                 btnColor="btn-negative"
                 handleClick={toggleDeleteConfirmProfileModal}
-                attributes="px-[5%] max-sm:w-[48%]"
-              >
+                attributes="px-[5%] max-sm:w-[48%]">
                 Cancelar
               </Button>
               <Button
@@ -73,8 +71,7 @@ export const Home = () => {
                 handleClick={() => {
                   deleteUser(user.id);
                 }}
-                attributes="px-[5%] max-sm:w-[48%] ml-4"
-              >
+                attributes="px-[5%] max-sm:w-[48%] ml-4">
                 Sim, excluir perfil
               </Button>
             </div>
@@ -86,8 +83,7 @@ export const Home = () => {
           title="Editar Perfil"
           toggleModal={() => toggleEditProfileModal()}
           attributes="max-h-screen max-w-[520px] no-scrollbar overflow-y-auto w-auto"
-          widthFull
-        >
+          widthFull>
           <EditProfile />
         </Modal>
       )}
@@ -96,8 +92,7 @@ export const Home = () => {
           title="Editar Endereço"
           toggleModal={() => toggleEditAddressModal()}
           attributes="max-h-screen max-w-[520px] no-scrollbar overflow-y-auto w-auto"
-          widthFull
-        >
+          widthFull>
           <EditAddress />
         </Modal>
       )}
@@ -105,8 +100,7 @@ export const Home = () => {
         <Modal
           title="Filtros"
           toggleModal={() => setIsOpen(!true)}
-          attributes="modal-filter"
-        >
+          attributes="modal-filter">
           <FilterHome textButton="Ver anúncios" />
         </Modal>
       )}
@@ -116,7 +110,7 @@ export const Home = () => {
         <div className="w-full flex justify-between self-center ">
           {!isMobile && <FilterHome textButton="Limpar filtros" />}
           <section className="flex justify-start max-w-[1032px] w-screen sm:items-start">
-            <ul className="sm:grid sm:grid-cols-3 flex gap-4  overflow-auto px-6 sm:px-0 sm:gap-12">
+            <ul className="sm:grid sm:grid-cols-3 flex gap-4 sm:overflow-hidden overflow-auto px-6 sm:px-0 sm:gap-12">
               {adverts.length ? (
                 adverts.map(
                   (card) =>
@@ -138,16 +132,14 @@ export const Home = () => {
               btnColor="btn-brand-1"
               btnSize="btn-big"
               attributes="w-[80%] mt-12"
-              handleClick={() => setIsOpen(true)}
-            >
+              handleClick={() => setIsOpen(true)}>
               Filtros
             </Button>
             <div className="flex items-center gap-8 mt-4">
               {prevHomePage && (
                 <button
                   onClick={() => checkPrevHomePage()}
-                  className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent"
-                >
+                  className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent">
                   Anterior
                 </button>
               )}
@@ -157,8 +149,7 @@ export const Home = () => {
               {nextHomePage && (
                 <button
                   onClick={() => checkNextHomePage()}
-                  className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent"
-                >
+                  className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent">
                   Seguinte
                 </button>
               )}
@@ -169,8 +160,7 @@ export const Home = () => {
             {prevHomePage && (
               <button
                 onClick={() => checkPrevHomePage()}
-                className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent"
-              >
+                className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent">
                 Anterior
               </button>
             )}
@@ -180,8 +170,7 @@ export const Home = () => {
             {nextHomePage && (
               <button
                 onClick={() => checkNextHomePage()}
-                className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent"
-              >
+                className="flex items-center justify-center font-lexend text-brand-2 sm:text-heading-5-600 border-none bg-transparent">
                 Seguinte
               </button>
             )}
