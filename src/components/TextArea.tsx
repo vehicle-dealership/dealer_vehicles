@@ -7,6 +7,7 @@ interface iTextAreaProps {
   placeholder: string;
   error?: string;
   defaultValue?: string;
+  disabled?: boolean;
 }
 
 export const TextArea = ({
@@ -17,6 +18,7 @@ export const TextArea = ({
   placeholder,
   error,
   defaultValue,
+  disabled,
 }: iTextAreaProps) => {
   return (
     <div className="flex flex-col gap-2 input-width">
@@ -30,6 +32,7 @@ export const TextArea = ({
         name={label}
         cols={cols}
         rows={rows}
+        disabled={disabled}
         placeholder={placeholder}
         defaultValue={defaultValue}
         {...register}

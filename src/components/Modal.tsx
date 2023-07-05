@@ -48,8 +48,7 @@ export const Modal = ({
         ref={blockClosing ? null : ref}
         className={`${attributes} ${
           !widthFull && "width-modal"
-        } bg-grey-10 px-6 py-5 shadow-lg rounded-lg sm:max-h-[97vh] animate-modal duration-300`}
-      >
+        } bg-grey-10 px-6 py-5 shadow-lg rounded-lg sm:max-h-[97vh] animate-modal duration-300`}>
         <div className="flex-col flex gap-8 ">
           <div className="flex justify-between items-center">
             <h2 className="font-lexend font-medium text-base text-grey-1">
@@ -59,7 +58,7 @@ export const Modal = ({
               X
             </button>
           </div>
-          <div>{children}</div>
+          <div className="flex justify-center">{children}</div>
         </div>
       </div>
     </div>,
