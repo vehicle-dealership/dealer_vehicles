@@ -16,7 +16,4 @@ export const carImages = [
   {
     src_image: mockCar,
   },
-  {
-    src_image: mockCar,
-  },
 ];

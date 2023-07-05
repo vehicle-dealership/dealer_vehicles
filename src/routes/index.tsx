@@ -5,7 +5,6 @@ import { Login } from "../pages/Login";
 import { Profile } from "../pages/Profile";
 import { Register } from "../pages/Register";
 import { ChangePassword } from "../pages/ChangePassword";
-// import { ProtectedRoutes } from "./ProtectRoute";
 
 export const PageRoutes = () => {
   return (
@@ -15,9 +14,7 @@ export const PageRoutes = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/changePassword/:token" element={<ChangePassword />} />
-      {/* <Route element={<ProtectedRoutes />}> */}
       <Route path="/profile/:id" element={<Profile />} />
-      {/* </Route> */}
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
